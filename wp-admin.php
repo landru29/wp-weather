@@ -4,18 +4,16 @@ if (!function_exists('add_action')) {
     die;
 }
 
-define('WP_DEBUG', true);
-
 if (!defined('ABSPATH')) {
     define('ABSPATH', dirname(__FILE__) . '/');
 }
 
-class MeteoAdmin {
+class WeatherAdmin {
 
     private $slug;
 
     function __construct() {
-        $this->slug="meteo";
+        $this->slug="weather";
     }
 
     function register() {
@@ -25,29 +23,33 @@ class MeteoAdmin {
     }
 
     function setupFields() {
-        add_settings_field( 'meteo_token', 'API token', array( $this, 'fieldTokenCallback' ), $this->slug, 'meteo_section' );
-        add_settings_field( 'meteo_location', 'ICAO location', array( $this, 'fieldLocationCallback' ), $this->slug, 'meteo_section' );
+        add_settings_field( 'weather_token', 'API token', array( $this, 'fieldTokenCallback' ), $this->slug, 'weather_section' );
+        add_settings_field( 'weather_location', 'ICAO location: XXXX (description)', array( $this, 'fieldLocationCallback' ), $this->slug, 'weather_section' );
     }
 
     function registerSettings() {
-        add_settings_section( 'meteo_section', 'Configuration', array( $this, 'sectionCallback' ), $this->slug );
-        register_setting( $this->slug, 'meteo_token' );
-        register_setting( $this->slug, 'meteo_location' );
+        add_settings_section( 'weather_section', 'Configuration', array( $this, 'sectionCallback' ), $this->slug );
+        register_setting( $this->slug, 'weather_token' );
+        register_setting( $this->slug, 'weather_location' );
     }
 
     function fieldTokenCallback($arguments) {
-        echo '<input name="meteo_token" id="meteo_token" type="text" value="' . get_option( 'meteo_token' ) . '" placeholder="API token"/>';
+        echo '<input name="weather_token" id="weather_token" type="text" value="' . get_option( 'weather_token' ) . '" placeholder="API token"/>';
         
     }
 
     function fieldLocationCallback($arguments) {
-        echo '<input name="meteo_location" id="meteo_location" type="text" value="' . get_option( 'meteo_location' ) . '" placeholder="ICAO location"/>';
-        
+        $locations = explode('/', get_option( 'weather_location' ));
+        echo '<div id="location-set">';
+        foreach ($locations as $index => $location) {
+            echo '<input class="location" name="location'.$index.'" id="location'.$index.'" type="text" value="' . $location . '" placeholder="ICAO location"/>';
+        }
+        echo '</div><button type="button" onclick="weatherAddLoc()">+</button>';
     }
 
     function sectionCallback($arguments) {
         switch( $arguments['id'] ){
-            case 'meteo':
+            case 'weather':
                 echo 'configure https://account.avwx.rest';
                 break;
         }
@@ -67,7 +69,7 @@ class MeteoAdmin {
 
 }
 
-if ( class_exists('MeteoAdmin')) {
-    $meteoPlugin = new MeteoAdmin();
-    $meteoPlugin->register();
+if ( class_exists('WeatherAdmin')) {
+    $weatherPlugin = new WeatherAdmin();
+    $weatherPlugin->register();
 }

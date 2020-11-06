@@ -1,0 +1,170 @@
+.switch-box {
+  display: block;
+  margin-top: 24px; }
+  .switch-box .switch-box-slider {
+    position: relative;
+    display: inline-block;
+    height: 8px;
+    width: 32px;
+    background: #222;
+    border-radius: 8px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease; }
+    .switch-box .switch-box-slider:after {
+      position: absolute;
+      left: -4px;
+      top: -4px;
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #ca2017;
+      box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+      content: '';
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease; }
+
+.switch-box-input {
+  display: none; }
+  .switch-box-input ~ .switch-box-label {
+    margin-left: 15px; }
+  .switch-box-input:checked ~ .switch-box-slider:after {
+    left: 16px; }
+  .switch-box-input:disabled ~ .switch-box-slider {
+    background: #d5d5d5;
+    cursor: default; }
+    .switch-box-input:disabled ~ .switch-box-slider:after {
+      background: #d5d5d5; }
+
+.switch-box-label:first-child {
+  margin-right: 15px; }
+
+div.weather-plugin {
+  position: relative; }
+  div.weather-plugin div.disclaimer {
+    font-size: 0.7em;
+    margin-top: 10px;
+    font-style: italic; }
+  div.weather-plugin div.disclaimer .dashicons {
+    margin-right: 2px; }
+  div.weather-plugin div.tabs {
+    margin-top: 10px; }
+    div.weather-plugin div.tabs button {
+      background-color: #fff;
+      border-top: solid 1px #ddd;
+      border-left: solid 1px #ddd;
+      border-right: solid 1px #ddd;
+      border-bottom: none;
+      color: #555;
+      border-radius: 0;
+      margin-left: 5px;
+      vertical-align: bottom;
+      font-size: 0.8em;
+      height: 40px;
+      padding-left: 15px;
+      padding-right: 15px; }
+      div.weather-plugin div.tabs button:focus {
+        outline: none; }
+      div.weather-plugin div.tabs button.selected {
+        background-color: #222;
+        color: #fff;
+        height: 50px;
+        font-size: 1.05em; }
+  div.weather-plugin select.weather-location-select:focus {
+    outline: none; }
+  div.weather-plugin button.time-tab {
+    background: transparent;
+    color: #555;
+    border: solid 1px #ddd;
+    border-radius: 0; }
+    div.weather-plugin button.time-tab:focus {
+      outline: none; }
+    div.weather-plugin button.time-tab.selected {
+      background-color: #222;
+      color: #fff; }
+  div.weather-plugin div.forecast > div {
+    display: none; }
+    div.weather-plugin div.forecast > div.visible {
+      display: block; }
+      div.weather-plugin div.forecast > div.visible > div.tab {
+        display: none; }
+        div.weather-plugin div.forecast > div.visible > div.tab.visible {
+          display: block; }
+  div.weather-plugin select.weather-location-select {
+    background: #fff;
+    font-family: sans-serif;
+    font-size: 0.9em;
+    padding: 5px; }
+  div.weather-plugin div.weather-widget-placeholder {
+    padding: 5px;
+    border: solid 1px #ddd; }
+    div.weather-plugin div.weather-widget-placeholder div.form-element span.value {
+      font-size: 0.8em; }
+    div.weather-plugin div.weather-widget-placeholder div.form-element span.value em {
+      padding-left: 3px; }
+    div.weather-plugin div.weather-widget-placeholder canvas.wind {
+      position: absolute;
+      margin: 2px;
+      right: 0px;
+      top: 95px; }
+    div.weather-plugin div.weather-widget-placeholder div.form-element {
+      display: block; }
+      div.weather-plugin div.weather-widget-placeholder div.form-element label {
+        min-width: 100px;
+        display: inline-block;
+        font-weight: bold;
+        font-size: 0.9em; }
+      div.weather-plugin div.weather-widget-placeholder div.form-element ul.value {
+        padding-left: 30px;
+        margin: 0;
+        list-style: square; }
+        div.weather-plugin div.weather-widget-placeholder div.form-element ul.value li.cloud-item {
+          border: 0;
+          font-size: 0.8em;
+          margin: 0;
+          padding: 0;
+          line-height: 20px; }
+      div.weather-plugin div.weather-widget-placeholder div.form-element li.cloud-item {
+        display: block; }
+        div.weather-plugin div.weather-widget-placeholder div.form-element li.cloud-item span.cloud-altitude {
+          font-weight: bold;
+          display: inline-block;
+          width: 80px; }
+    div.weather-plugin div.weather-widget-placeholder .date {
+      display: inline-block;
+      border: solid 1px #ca2017;
+      position: absolute;
+      top: 15px;
+      right: 0; }
+      div.weather-plugin div.weather-widget-placeholder .date .month {
+        display: block;
+        background: #ca2017;
+        color: #fff;
+        width: 50px;
+        text-align: center;
+        font-family: monospace; }
+      div.weather-plugin div.weather-widget-placeholder .date .day {
+        text-align: center;
+        display: block;
+        width: 50px;
+        font-family: sans-serif; }
+    div.weather-plugin div.weather-widget-placeholder .time {
+      font-family: monospace;
+      font-size: 1.2em;
+      font-weight: bold;
+      position: absolute;
+      top: 30px;
+      right: 75px; }
+    div.weather-plugin div.weather-widget-placeholder span.alert {
+      text-align: center;
+      display: block; }
+    div.weather-plugin div.weather-widget-placeholder div.tab-taf div.forecast {
+      border-bottom: solid 1px #ddd;
+      min-height: 120px; }
+    div.weather-plugin div.weather-widget-placeholder div.tab-metar {
+      min-height: 150px; }
+
+input.location {
+  display: block;
+  margin-top: 10px; }
