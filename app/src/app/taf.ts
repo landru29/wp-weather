@@ -21,7 +21,7 @@ export class Taf {
             }
             
             // Flight rules switch
-            const switchBox = jQuery('<div class="switch-box"></div>');
+            const switchBox = jQuery('<div class="switch-box source-selector"></div>');
             switchBox.append('<label for="default" class="switch-box-label">MVFR</label>');
             const switchBtn = jQuery('<input id="default" class="switch-box-input" type="checkbox" />');
             switchBox.append(switchBtn);

@@ -32,7 +32,7 @@ export class Metar {
           
             // Wind
             if (data.wind_speed) {
-              const canvas = jQuery('<canvas class="wind" width="150" height="150"></canvas>');
+              const canvas = jQuery('<canvas class="wind" width="100px" height="100px"></canvas>');
               const elt = canvas.get(0) as HTMLCanvasElement;
               this.container.append(canvas);
               new Wind(elt).displayWind(
@@ -54,6 +54,19 @@ export class Metar {
             // Pressure
             if (data.altimeter) {
               this.container.append('<div class="form-element"><label>'+titles[this.lang].pressure+':</label><span class="value">'+ data.altimeter.value + '<em>' + data.units.altimeter +'</em></span></div>');
+            }
+
+            // Visibility
+            if (data.visibility) {
+              var vis = '<span class="value">'+ data.visibility.value +'<em>'+ data.units.visibility+'</em></span>';
+              if (data.visibility.repr == "CAVOK") {
+                var cavok: {[lang: string]: string} = {
+                  fr: 'Nuages et visibilité sont OK,',
+                  en: 'Ceiling and visibility OK',
+                }
+                vis = '<span class="value">' + cavok[this.lang] + '</span>';
+              }
+              this.container.append('<div class="form-element"><label>'+titles[this.lang].visibility+':</label>' + vis + '</div>');
             }
           
             // Remarks
@@ -112,20 +125,6 @@ export class Metar {
           
               this.container.append('<div class="form-element"><label>Nuages:</label><ul class="value">'+ clouds.join("\n") +'</ul></div>')
             }
-          
-            // Visibility
-            if (data.visibility) {
-              var vis = '<span class="value">'+ data.visibility.value +'<em>'+ data.units.visibility+'</em></span>';
-              if (data.visibility.repr == "CAVOK") {
-                var cavok: {[lang: string]: string} = {
-                  fr: 'Nuages et visibilité sont OK,',
-                  en: 'Ceiling and visibility OK',
-                }
-                vis = '<span class="value">' + cavok[this.lang] + '</span>';
-              }
-              this.container.append('<div class="form-element"><label>'+titles[this.lang].visibility+':</label>' + vis + '</div>');
-            }
-          
           
             // Raw Metar
             if (data.raw) {

@@ -99,17 +99,20 @@ div.weather-plugin {
   div.weather-plugin div.weather-widget-placeholder {
     padding: 5px;
     border: solid 1px #ddd; }
-    div.weather-plugin div.weather-widget-placeholder div.form-element span.value {
-      font-size: 0.8em; }
-    div.weather-plugin div.weather-widget-placeholder div.form-element span.value em {
-      padding-left: 3px; }
+    div.weather-plugin div.weather-widget-placeholder .source-selector {
+      display: none !important; }
     div.weather-plugin div.weather-widget-placeholder canvas.wind {
       position: absolute;
       margin: 2px;
       right: 0px;
       top: 95px; }
     div.weather-plugin div.weather-widget-placeholder div.form-element {
-      display: block; }
+      display: block;
+      margin-top: 2px; }
+      div.weather-plugin div.weather-widget-placeholder div.form-element span.value {
+        font-size: 0.8em; }
+        div.weather-plugin div.weather-widget-placeholder div.form-element span.value em {
+          padding-left: 3px; }
       div.weather-plugin div.weather-widget-placeholder div.form-element label {
         min-width: 100px;
         display: inline-block;

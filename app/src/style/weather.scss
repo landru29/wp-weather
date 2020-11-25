@@ -158,13 +158,9 @@ div.weather-plugin {
     div.weather-widget-placeholder {
         padding: 5px;
         border: solid 1px #ddd;
-    
-        div.form-element span.value {
-            font-size: 0.8em;
-        }
-        
-         div.form-element span.value em {
-            padding-left: 3px;
+
+        .source-selector {
+            display: none !important;
         }
 
         canvas.wind {
@@ -176,6 +172,14 @@ div.weather-plugin {
         
         div.form-element {
             display: block;
+            margin-top: 2px;
+
+            span.value {
+                font-size: 0.8em;
+                em {
+                    padding-left: 3px;
+                }
+            }
     
             label {
                 min-width: 100px;
