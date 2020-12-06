@@ -106,6 +106,10 @@ div.weather-plugin {
       margin: 2px;
       right: 0px;
       top: 95px; }
+    div.weather-plugin div.weather-widget-placeholder canvas.temperature {
+      position: absolute;
+      right: 150px;
+      top: 95px; }
     div.weather-plugin div.weather-widget-placeholder div.form-element {
       display: block;
       margin-top: 2px; }

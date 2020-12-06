@@ -1,3 +1,4 @@
+import { Temperature } from './temperature';
 import {MetarData} from './weather';
 import { Wind } from './wind';
 
@@ -45,10 +46,14 @@ export class Metar {
           
             // Temperatures
             if (data.temperature) {
-              this.container.append('<div class="form-element"><label>'+titles[this.lang].temp+':</label><span class="value">'+ data.temperature.value +'<em>°'+ data.units.temperature+'</em></span></div>');
-            }
-            if (data.dewpoint) {
-              this.container.append('<div class="form-element"><label>'+titles[this.lang].dew+':</label><span class="value">'+ data.dewpoint.value +'<em>°'+ data.units.temperature+'</em></span></div>');
+              const canvas = jQuery('<canvas class="temperature" width="150px" height="120px"></canvas>');
+              const elt = canvas.get(0) as HTMLCanvasElement;
+              this.container.append(canvas);
+              new Temperature(elt).display(
+                data && data.dewpoint ? data.dewpoint.value || 0 : 0,
+                data && data.temperature ? data.temperature.value || 0 : 0,
+                this.lang,
+                );
             }
           
             // Pressure

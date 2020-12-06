@@ -40,7 +40,7 @@ export class Wind {
     }
 
     private clear() {
-        this.ctx.clearRect(0, 0, this.centerX, this.centerY);
+        this.ctx.clearRect(0, 0, this.centerX * 2, this.centerY * 2);
     }
 
     private displayCardinal(angle: number, left: boolean, opt?: CardinalOption) {

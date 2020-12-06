@@ -169,6 +169,12 @@ div.weather-plugin {
             right: 0px;
             top: 95px;
         }
+
+        canvas.temperature {
+            position: absolute;
+            right: 150px;
+            top: 95px;
+        }
         
         div.form-element {
             display: block;
